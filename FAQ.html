@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Trust Verify</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+        <style>
+            body {
+            font-family: Arial, sans-serif;
+        }
+        header {
+            background-color: rgba(60, 60, 183, 0.479);
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: large;
+        }
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .header-container img {
+            margin-left: 500px;
+        }
+        nav {
+            text-align: center;
+            background-color: rgba(60, 60, 183, 0.479);
+            padding: 5px;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        nav li {
+            display: inline;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+        }
+        footer nav a {
+            color: white; 
+            text-decoration: none;
+        }
+        footer nav a:hover {
+            color: darkblue; 
+        }
+        .collapsible {
+            background-color: rgba(60, 60, 183, 0.479);
+            color: white;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+        }
+
+        .active, .collapsible:hover {
+            background-color: #555;
+        }
+        .collapsible:after {
+            content: '\002B';
+            color: white;
+            font-weight: bold;
+            float: right;
+            margin-left: 5px;
+        }
+        .active:after {
+            content: "\2212";
+        }
+        .content {
+            padding: 0 18px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+            background-color: #f1f1f1;
+        }
+        .que {
+            padding: 20px;
+            width: 100%;
+        }
+        .flex {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 50px auto;
+            max-width: 1000px;
+        }
+        .flex img {
+            width: 35%;
+        }
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+            }
+            .header-container img {
+                margin: 20px 0 0 0;
+            }
+            .flex {
+                flex-direction: column;
+                align-items: center;
+            }
+            .flex img {
+                width: 80%;
+            }
+        }
+        @media (max-width: 480px) {
+            nav li {
+                display: block;
+                padding: 10px;
+            }
+            .collapsible {
+                font-size: 14px;
+                padding: 15px;
+            }
+            .que {
+                padding: 10px;
+            }
+            .flex img {
+                width: 100%;
+            }
+        }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="header-container">
+                    <h2>Welcome to Trust Verify! Mr John</h2>
+                    <img src="profile.png" alt="Profile" height="100">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p>To ensure the security of your account and propertities, <br>verify the transaction accounts with trust verify.</p>
+          </header>
+          <div class="col-sm-12">
+            <div class="flex">
+                <div class="que">
+                    <h2>Questions? Look Here!</h2>
+
+                    
+
+                    
+                    <button type="button" class="collapsible">What is bank account verification?</button>
+                    <div class="content">
+                    <p>Bank account verification is a process that confirms the validity of a bank account. This is done for a variety of reasons, including checking to make sure an account is active, confirming that it belongs to the person claiming ownership, and verifying that there are sufficient funds for transactions such as direct deposit or automated payments. Bank account verification is commonly used for online bank payments to reduce the risk of fraud or error.</p>
+                    </div>
+                    <br> <br>
+                    <button type="button" class="collapsible">What is bank account verification used for?</button>
+                    <div class="content">
+                    <p>Bank account verification authenticates the ownership and validity of a specific bank account. It is a prerequisite for online transactions—especially electronic funds transfers and automated clearing house (ACH) payments—and various other financial activities. The goal is to confirm key details, such as the account holder’s name, the account number, and the account type (i.e., checking or savings). It helps avoid errors, reduce fraud, and protect the accuracy of electronic transactions.</p>
+                    </div>
+                    <br> <br>
+                    <button type="button" class="collapsible">How does bank account verification work?</button>
+                    <div class="content">
+                    <p>There are multiple verification methods available. These methods might include algorithms to check account number structure according to country or banking institution protocols, direct microdeposits to verify account status, or multifactor authentication techniques to confirm customer identity. </p>
+                    </div>
+                    <br> <br>
+                    <button type="button" class="collapsible">Why is bank account verification important?</button>
+                    <div class="content">
+                    <p>Bank account verification helps establish trust in and accuracy of payment processing systems by supporting the safety, efficiency, and legality of financial transactions.  </p>
+                    </div>
+                    <br> <br>
+                </div>  
+                <img src="FAQ1.png" alt="FAQ" height="500">
+            </div>  
+        </div>  
+        <script>
+            var coll = document.getElementsByClassName("collapsible");
+            var i;
+            
+            for (i = 0; i < coll.length; i++) {
+              coll[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.maxHeight){
+                  content.style.maxHeight = null;
+                } else {
+                  content.style.maxHeight = content.scrollHeight + "px";
+                } 
+              });
+            }
+            </script>
+            
+          <footer>
+            <nav>
+                <ul>
+                <li >
+                    <a href="demo3.html"><i class="fa fa-home"></i>Home</a>
+                </li>
+                <li >
+                    <a href="setting.html"><i class="fa fa-cog"></i>Setting</a>
+                </li>
+                
+                <li>
+                    <a href="FAQ.html"><i class="fa fa-question-circle"></i>FAQ</a>
+                </li>
+                <li>
+                    <a href="contact.html"><i class="fa fa-envelope"></i>Contact Us</a>
+                </li>
+                </ul>
+            </nav>
+          </footer>
+    </body>
+</html>

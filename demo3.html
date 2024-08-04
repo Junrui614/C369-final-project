@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trust Verify</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    header {
+        background-color: rgba(60, 60, 183, 0.479);
+        color: white;
+        padding: 10px;
+        text-align: center;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-size: large;
+    }
+    .header-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .header-container img {
+            margin-left: 500px;
+    }
+    .header-container h1 {
+      text-align: center;
+      
+    }
+    #about {
+        text-align: center;
+        padding:20px;
+    }
+    #cate {
+        margin:20px;
+        align-items: right;
+    }
+    div {
+        text-align: center;
+    }
+    .container1 {
+        padding: 20px;
+         overflow: hidden; 
+    }
+
+    .box {
+        width: 30%; 
+        float: left;
+        margin: 10px 1%;
+        padding: 20px;
+        border: 1px solid #333;
+        box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+        border-radius: 8%;
+        background-color: rgba(39, 39, 157, 0.518);
+    }
+
+    .box1 {
+        background-color: #f4f4f4;
+    }
+
+    .box2 {
+        background-color: #f4f4f4;
+    }
+    .box3 {
+        background-color: #f4f4f4 ;
+    }
+    nav {
+        text-align: center;
+        background-color: rgba(60, 60, 183, 0.479);
+        padding: 5px;
+    }
+    nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+    nav li {
+        display: inline;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+    }
+    footer nav a {
+        color: white; 
+        text-decoration: none;
+    }
+    footer nav a:hover {
+        color: darkblue; 
+    }
+    @media (max-width: 768px) {
+        .header-container {
+            flex-direction: column;
+        }
+        .header-container img {
+            margin: 20px 0 0 0;
+        }
+        .box {
+            width: 45%;
+            margin: 5px 2.5%;
+        }
+    }
+    @media (max-width: 480px) {
+        .header-container {
+            flex-direction: column;
+        }
+        .container1 {
+            padding: 10px;
+        }
+        .box {
+            width: 90%;
+            margin: 10px auto;
+        }
+    }
+    
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="header-container">
+            <h2>Welcome to Trust Verify! Mr John</h2>
+            <img src="profile.png" alt="Profile" height="100">
+          </div>
+        </div>
+      </div>
+    </div>
+    <p>To ensure the security of your account and propertities, <br>verify the transaction accounts with trust verify.</p>
+  </header>
+  <p id="about">Verify the transaction account before doing transaction helps you protect your money and ensures your account not to be hacking by the other person. The verification process is quick and easy. Follow the sstepbelow to do your verification. You can also </p>
+  <hr>
+  <div>
+    <h4>Step to Verify transaction account</h4>
+    <ol>
+        <li>Choosing the account type you want to verify.(account number or phone number or QR code)</li>
+        <li>Click on the verification button.</li>
+    </ol>
+  </div>
+  <hr>
+  <h4 id="cate">Categories</h4>
+  <div class="container1">
+    <div class="box box1">
+      <a href="verify.html"><h2>Verify</h2></a>
+      <img src="verify.png" alt="Profile" height="50">
+    </div>
+    <div class="box box2">
+      <a href="notification.html"><h2>Notification</h2></a>
+      <img src="notification.png" alt="Profile" height="50">
+    </div>
+    <div class="box box3">
+        <a href="topup.html"><h2>Wallet</h2></a>
+        <img src="wallet.png" alt="Profile" height="50">
+      </div>
+  </div>
+  <footer>
+    <nav>
+        <ul>
+        <li>
+            <a href="demo3.html"><i class="fa fa-home"></i>Home</a>
+        </li>
+        <li>
+            <a href="setting.html"><i class="fa fa-cog"></i>Setting</a>
+        </li>
+        
+        <li>
+            <a href="FAQ.html"><i class="fa fa-question-circle"></i>FAQ</a>
+        </li>
+        <li>
+            <a href="contact.html"><i class="fa fa-envelope"></i>Contact Us</a>
+        </li>
+        </ul>
+    </nav>
+  </footer>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

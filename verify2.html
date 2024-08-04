@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Trust Verify</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js"></script>
+        <style>
+            .scan {
+                font-family: Arial, sans-serif;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+                margin: 0;
+                background-color: #f4f4f4;
+            }
+            #video {
+                width: 300px;
+                height: 300px;
+                border: 1px solid #ccc;
+                margin-bottom: 20px;
+            }
+            #result {
+                font-size: 18px;
+                color: #333;
+            }
+            header {
+                background-color: rgba(60, 60, 183, 0.479);
+                color: white;
+                padding: 10px;
+                text-align: center;
+                font-family: Georgia, 'Times New Roman', Times, serif;
+                font-size: large;
+            }
+            .header-container {
+                display: flex;
+                align-items: left;
+                justify-content: center;
+            }
+            .header-container img {
+                margin-left: 500px;
+            }
+            nav {
+                text-align: center;
+                background-color: rgba(60, 60, 183, 0.479);
+                padding: 5px;
+            }
+            nav ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+            }
+            nav li {
+                display: inline;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+            }
+            footer nav a {
+                color: white; 
+                text-decoration: none;
+            }
+            footer nav a:hover {
+                color: darkblue;
+            }
+            .verification-container {
+                padding: 50px;
+            }
+            hr.dotted-line {
+                border: none;
+                border-top: 2px dotted #dbd4d4;
+                height: 2px;
+                width: 100%;
+                margin: 20px;
+            }
+            nav {
+                text-align: center;
+                background-color: rgba(60, 60, 183, 0.479);
+                padding: 5px;
+            }
+            nav ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+            }
+            nav li {
+                display: inline;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+            }
+            footer nav a {
+                color: white; 
+                text-decoration: none;
+            }
+            footer nav a:hover {
+                color: darkblue; 
+            }
+            @media (max-width: 768px) {
+                .header-container {
+                    flex-direction: column;
+                }
+                .header-container img {
+                    margin: 20px 0 0 0;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="header-container">
+                    <h2>Welcome to Trust Verify! Mr John</h2>
+                    <img src="profile.png" alt="Profile" height="100">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p>To ensure the security of your account and propertities, <br>verify the transaction accounts with trust verify.</p>
+          </header>
+
+        <div class="scan">  
+          <h1>Scan Verify QR Code</h1>
+          <p>Place the Verify QR code in front of the camera or scanner</p>
+          <hr class="dotted-line">
+          <video id="video" autoplay></video>
+          <canvas id="canvas" hidden></canvas>
+          <hr class="dotted-line">
+          <div id="result">If you have problems scanning the QR code, you may want to verify by</div>
+          <a href="verify1.html">Enter Account ID or Account Number.</a>
+        </div>
+        <footer>
+            <nav>
+                <ul>
+                <li >
+                    <a href="demo3.html"><i class="fa fa-home"></i>Home</a>
+                </li>
+                <li >
+                    <a href="setting.html"><i class="fa fa-cog"></i>Setting</a>
+                </li>
+                
+                <li>
+                    <a href="FAQ.html"><i class="fa fa-question-circle"></i>FAQ</a>
+                </li>
+                <li>
+                    <a href="contact.html"><i class="fa fa-envelope"></i>Contact Us</a>
+                </li>
+                </ul>
+            </nav>
+          </footer>
+    <script>
+        const video = document.getElementById('video');
+        const canvas = document.getElementById('canvas');
+        const result = document.getElementById('result');
+        const context = canvas.getContext('2d');
+
+        function startVideo() {
+            navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } })
+                .then(stream => {
+                    video.srcObject = stream;
+                    video.setAttribute("playsinline", true); 
+                    video.play();
+                    requestAnimationFrame(tick);
+                })
+                .catch(err => {
+                    console.error("Error accessing camera: " + err);
+                });
+        }
+
+        function tick() {
+            if (video.readyState === video.HAVE_ENOUGH_DATA) {
+                canvas.width = video.videoWidth;
+                canvas.height = video.videoHeight;
+                context.drawImage(video, 0, 0, canvas.width, canvas.height);
+                const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+                const code = jsQR(imageData.data, imageData.width, imageData.height, {
+                    inversionAttempts: "dontInvert",
+                });
+
+                if (code) {
+                    result.innerText = `Scanned Result: ${code.data}`;
+                    
+                    video.pause();
+                    video.srcObject.getTracks().forEach(track => track.stop());
+                } else {
+                    requestAnimationFrame(tick);
+                }
+            } else {
+                requestAnimationFrame(tick);
+            }
+        }
+
+        startVideo();
+    </script>
+    </body>
+</html>
